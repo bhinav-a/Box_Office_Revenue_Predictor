@@ -1,8 +1,8 @@
 import streamlit as st
 
-st.title(' 🤖 Machine Learning App')
+st.title(' 🤖 Box_Office_Revenue_Predictor')
 
-st.info('This app builds a Machine Learning Model')
+st.info('This app can predict a box office revenue by using the genre of the movie and other related features')
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
