@@ -7,6 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sb
+import plotly.figure_factory as ff
 df = pd.read_csv('boxoffice.csv')
 to_remove = ['world_revenue', 'opening_revenue']
 df.drop(to_remove, axis=1, inplace=True)
@@ -29,9 +30,9 @@ for col in ['domestic_revenue', 'opening_theaters', 'release_days']:
 features = ['domestic_revenue', 'opening_theaters', 'release_days']
 for col in features:
   df[col] = df[col].apply(lambda x: np.log10(x))
-
+ff = df.domestic_revenue
 with st.expander('Data Visualization'):
-  st.plotly_chart(df.domestic_revenue, use_container_width=True)
+  st.plotly_chart(ff, use_container_width=True)
 
 
   
