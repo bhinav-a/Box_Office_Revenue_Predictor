@@ -53,9 +53,9 @@ genres = vectorizer.get_feature_names_out()
 for i, name in enumerate(genres):
 	df[name] = features[:, i]
 
-df.drop('genres', axis=1, inplace=True) 
-features = df.drop(['title', 'domestic_revenue'], axis=1)
-target = df['domestic_revenue'].values
+for col in ['genres']:
+	le = LabelEncoder()
+	df[col] = le.fit_transform(df[col])
 
 for col in ['distributor', 'MPAA']:
 	le = LabelEncoder()
