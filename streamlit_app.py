@@ -18,7 +18,7 @@ with st.expander('Data'):
   df = pd.read_csv('boxoffice.csv')
   df
   st.write('**X**')
-  ab = ['title','domestic_revenue']
+  ab = ['title','domestic_revenue' ,'world_revenue', 'opening_revenue' ]
   x = df.drop(ab,axis=1)
   x
   st.write('**Y**')
@@ -39,6 +39,8 @@ fig = ff.create_distplot(ar , group_labels ,bin_size=[.1, .25, .5])
 with st.expander('Data Visualization'):
   st.plotly_chart(fig , use_container_width=True)
 
-
+with st.sidebar:
+  st.header('Input Feature')
+  
   
 
