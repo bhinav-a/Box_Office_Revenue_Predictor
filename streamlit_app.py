@@ -31,7 +31,7 @@ features = ['domestic_revenue', 'opening_theaters', 'release_days']
 for col in features:
   df[col] = df[col].apply(lambda x: np.log10(x))
 
-group_labels = ['Group 1']
+group_labels = ['Domestic Revenue']
 array = df['domestic_revenue'].to_numpy()
 ar = [array]
 fig = ff.create_distplot(ar , group_labels ,bin_size=[.1, .25, .5])
