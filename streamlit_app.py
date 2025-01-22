@@ -34,7 +34,7 @@ for col in features:
 group_labels = ['Group 1']
 array = df['domestic_revenue'].to_numpy()
 ar = [array]
-fig = ff.create_distplot(ar , group_labels)
+fig = ff.create_distplot(ar , group_labels ,bin_size=[.1, .25, .5])
 
 with st.expander('Data Visualization'):
   st.plotly_chart(fig , use_container_width=True)
