@@ -30,8 +30,8 @@ for col in features:
 with st.expander('Data Visualization'):
     plt.subplots(figsize=(15, 5))
   for i, col in enumerate(features):
-	  plt.subplot(1, 3, i+1)
-	  sb.distplot(df[col])
+	plt.subplot(1, 3, i+1)
+	sb.distplot(df[col])
   plt.tight_layout()
   plt.show()
 
