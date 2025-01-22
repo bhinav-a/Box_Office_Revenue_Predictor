@@ -15,10 +15,10 @@ with st.expander('Data'):
   df
   st.write('**X**')
   ab = ['title','domestic_revenue']
-  x = df.drop(ab,axis=1 , inplace=True)
+  x = df.drop(ab,axis=1)
   x
   st.write('**Y**')
-  y = df['domestic_revenue']
+  y = df.domestic_revenue
   y
 
   
