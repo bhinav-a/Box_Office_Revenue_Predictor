@@ -20,7 +20,21 @@ with st.expander('Data'):
   st.write('**Y**')
   y = df.domestic_revenue
   y
+for col in ['domestic_revenue', 'opening_theaters', 'release_days']:
+    df[col] = df[col].astype(str).str.replace(',', '')
+    df[col] = pd.to_numeric(df[col], errors='coerce')
 
-  
+for col in features:
+  df[col] = df[col].apply(lambda x: np.log10(x))
+
+with st.expander('Data Visualization'):
+    plt.subplots(figsize=(15, 5))
+  for i, col in enumerate(features):
+	  plt.subplot(1, 3, i+1)
+	  sb.distplot(df[col])
+  plt.tight_layout()
+  plt.show()
+
+
   
 
