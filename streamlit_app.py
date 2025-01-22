@@ -65,7 +65,7 @@ ab = ['title','domestic_revenue' ,'world_revenue', 'opening_revenue' ]
 features = df.drop(ab, axis=1)
 target = df.domestic_revenue.values
 
-X_train, X_val, Y_train, Y_val = train_test_split(x,y,test_size=0.2,random_state=22)
+X_train, X_val, Y_train, Y_val = train_test_split(features,target,test_size=0.2,random_state=22)
 
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
