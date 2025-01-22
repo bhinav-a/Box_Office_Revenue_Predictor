@@ -11,7 +11,7 @@ import plotly.figure_factory as ff
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn import metrics
+from sklearn.metrics import mean_absolute_error as mae
 from xgboost import XGBRegressor
 df = pd.read_csv('boxoffice.csv')
 to_remove = ['world_revenue', 'opening_revenue']
@@ -58,6 +58,19 @@ features = df.drop(['title', 'domestic_revenue'], axis=1)
 target = df['domestic_revenue'].values
 
 X_train, X_val, Y_train, Y_val = train_test_split(x,y,test_size=0.2,random_state=22)
-									
+
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_val = scaler.transform(X_val)
+
+model = XGBRegressor()
+model.fit(X_train, Y_train)
+
+train_preds = model.predict(X_train)
+print('Training Error : ', mae(Y_train, train_preds))
+
+val_preds = model.predict(X_val)
+print('Validation Error : ', mae(Y_val, val_preds))
+
 									
 
