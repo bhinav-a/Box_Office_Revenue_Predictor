@@ -6,6 +6,7 @@ st.info('This app builds a Machine Learning Model')
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sb
 df = pd.read_csv('boxoffice.csv')
 to_remove = ['world_revenue', 'opening_revenue']
 df.drop(to_remove, axis=1, inplace=True)
