@@ -23,7 +23,7 @@ with st.expander('Data'):
 for col in ['domestic_revenue', 'opening_theaters', 'release_days']:
     df[col] = df[col].astype(str).str.replace(',', '')
     df[col] = pd.to_numeric(df[col], errors='coerce')
-
+features = ['domestic_revenue', 'opening_theaters', 'release_days']
 for col in features:
   df[col] = df[col].apply(lambda x: np.log10(x))
 
