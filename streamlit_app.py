@@ -30,9 +30,12 @@ for col in ['domestic_revenue', 'opening_theaters', 'release_days']:
 features = ['domestic_revenue', 'opening_theaters', 'release_days']
 for col in features:
   df[col] = df[col].apply(lambda x: np.log10(x))
-ff = df.domestic_revenue
+
+array = df['domestic_revenue'].to_numpy()
+fig = ff.create_distplot(array)
+
 with st.expander('Data Visualization'):
-  st.plotly_chart(ff, use_container_width=True)
+  st.plotly_chart(fig, use_container_width=True)
 
 
   
