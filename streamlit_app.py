@@ -8,6 +8,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sb
 import plotly.figure_factory as ff
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn import metrics
+from xgboost import XGBRegressor
 df = pd.read_csv('boxoffice.csv')
 to_remove = ['world_revenue', 'opening_revenue']
 df.drop(to_remove, axis=1, inplace=True)
@@ -39,8 +44,15 @@ fig = ff.create_distplot(ar , group_labels ,bin_size=[.1, .25, .5])
 with st.expander('Data Visualization'):
   st.plotly_chart(fig , use_container_width=True)
 
-with st.sidebar:
-  st.header('Input Feature')
-  
+
+vectorizer = CountVectorizer()
+vectorizer.fit(df['genres'])
+features = vectorizer.transform(df['genres']).toarray()
+
+genres = vectorizer.get_feature_names_out()
+for i, name in enumerate(genres):
+	df[name] = features[:, i]
+
+df.drop('genres', axis=1, inplace=True) 
   
 
