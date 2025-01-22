@@ -54,5 +54,10 @@ for i, name in enumerate(genres):
 	df[name] = features[:, i]
 
 df.drop('genres', axis=1, inplace=True) 
-  
+features = df.drop(['title', 'domestic_revenue'], axis=1)
+target = df['domestic_revenue'].values
+
+X_train, X_val, Y_train, Y_val = train_test_split(x,y,test_size=0.2,random_state=22)
+									
+									
 
