@@ -5,3 +5,4 @@ scikit-learn
 matplot
 seaborn
 plotly
+xgboost
