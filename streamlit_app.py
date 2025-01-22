@@ -31,11 +31,7 @@ for col in features:
   df[col] = df[col].apply(lambda x: np.log10(x))
 
 with st.expander('Data Visualization'):
-  for i, col in enumerate(features):
-     plt.subplot(1, 3, i+1)
-     sb.distplot(df[col])
-  plt.tight_layout()
-  plt.show()
+  st.plotly_chart(df.domestic_revenue, use_container_width=True)
 
 
   
