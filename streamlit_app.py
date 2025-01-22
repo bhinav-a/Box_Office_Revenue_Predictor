@@ -60,6 +60,7 @@ target = df['domestic_revenue'].values
 for col in ['distributor', 'MPAA']:
 	le = LabelEncoder()
 	df[col] = le.fit_transform(df[col])
+df
 
 X_train, X_val, Y_train, Y_val = train_test_split(x,y,test_size=0.2,random_state=22)
 
