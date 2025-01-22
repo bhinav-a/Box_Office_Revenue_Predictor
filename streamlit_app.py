@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title('🤖🍿Box Office Revenue Predictor🎬🎞️')
+st.title('🤖Box Office Revenue Predictor🎬')
 
 st.info('This app can predict a box office revenue by using the genre of the movie and other related features')
 import pandas as pd
