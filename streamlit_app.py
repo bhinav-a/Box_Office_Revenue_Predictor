@@ -25,7 +25,6 @@ with st.expander('Data'):
   y = df['domestic_revenue']
   y
 
-with st.expander('Data Visualization'):
   
   
 
