@@ -151,6 +151,7 @@ with st.expander("Input Data"):
 	st.write('**Encoded Data**')
 	input_en
 answer = model.predict(input_en.to_numpy())
-f_ans = str(10**answer)
+f_ans = 10**answer
+ans = str(f_ans[0])
 st.subheader('Predicted Rvenue')
-st.success('$'+f_ans[0])
+st.success('$ '+ans)
