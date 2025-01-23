@@ -136,5 +136,5 @@ data = {
 	'genres' : genre,
        'release_days': release_D
 	}
-input_df = pd.DataFrame(data,index[0])
+input_df = pd.DataFrame(data,index=[0])
 input_df
