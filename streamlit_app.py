@@ -22,7 +22,7 @@ with st.expander('Data'):
   st.write('**Raw Data**')
   df
   st.write('**X**')
-  ab = ['title','domestic_revenue' ,'world_revenue', 'opening_revenue' ]
+  ab = ['title','domestic_revenue']
   x = df.drop(ab,axis=1)
   x
   st.write('**Y**')
