@@ -138,7 +138,6 @@ data = {
 	}
 input_df = pd.DataFrame(data,index=[0])
 data_en = {
-	'title':title,
 	'distributor':dis,
 	'opening_theaters':open_T,
 	'MPAA' : mp, 
