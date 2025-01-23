@@ -138,4 +138,4 @@ data = {
 	}
 input_df = pd.DataFrame(data,index=[0])
 # input_df
-input_df.to_numpy()
+st.write(input_df.to_numpy())
