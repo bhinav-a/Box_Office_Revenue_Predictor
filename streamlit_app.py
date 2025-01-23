@@ -66,17 +66,16 @@ with st.sidebar:
         genre = st.radio("Choose Genre:", ['Animation', 'Action', 'Horror', 'Comedy', 'Drama', 'Thriller'])
         open_T = st.slider('Opening Theatre', 10, 4500, 2263)
         release_D = st.slider('Release Date', 1, 180, 90)
-    
         load = st.button('Load Button')
-    if load :
-        pro_dict = {'Warner Bros.': 4, 'Disney': 0, 'Sony': 2, 'Universal': 3, 'Paramount': 1}
-        mpaa_dict = {'R': 4, 'G': 0, 'NC': 1, 'PG': 2, 'PG-13': 3}
-        genre_dict = {'Animation': 1, 'Action': 0, 'Horror': 4, 'Comedy': 2, 'Drama': 3, 'Thriller': 5}
-
-        data = {'title': title, 'distributor': pro, 'opening_theaters': open_T, 'MPAA': mpaa, 'genres': genre, 'release_days': release_D}
-        input_df = pd.DataFrame(data, index=[0])
-        data_en = {'distributor': pro_dict[pro], 'opening_theaters': open_T, 'MPAA': mpaa_dict[mpaa], 'genres': genre_dict[genre], 'release_days': release_D}
-        input_en = pd.DataFrame(data_en, index=[0])
+        if load :
+            pro_dict = {'Warner Bros.': 4, 'Disney': 0, 'Sony': 2, 'Universal': 3, 'Paramount': 1}
+            mpaa_dict = {'R': 4, 'G': 0, 'NC': 1, 'PG': 2, 'PG-13': 3}
+            genre_dict = {'Animation': 1, 'Action': 0, 'Horror': 4, 'Comedy': 2, 'Drama': 3, 'Thriller': 5}
+    
+            data = {'title': title, 'distributor': pro, 'opening_theaters': open_T, 'MPAA': mpaa, 'genres': genre, 'release_days': release_D}
+            input_df = pd.DataFrame(data, index=[0])
+            data_en = {'distributor': pro_dict[pro], 'opening_theaters': open_T, 'MPAA': mpaa_dict[mpaa], 'genres': genre_dict[genre], 'release_days': release_D}
+            input_en = pd.DataFrame(data_en, index=[0])
 
 with st.expander("Input Data"):
             st.write('**Data**')
