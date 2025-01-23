@@ -51,7 +51,7 @@ for col in ['distributor', 'MPAA']:
 	le = LabelEncoder()
 	df[col] = le.fit_transform(df[col])
 
-ab = ['title','domestic_revenue' ,'world_revenue', 'opening_revenue' ]
+ab = ['title','domestic_revenue' ]
 features = df.drop(ab, axis=1)
 target = df.domestic_revenue.values
 
