@@ -137,5 +137,17 @@ data = {
        'release_days': release_D
 	}
 input_df = pd.DataFrame(data,index=[0])
-# input_df
-st.write(input_df.to_numpy())
+data_en = {
+	'title':title,
+	'distributor':dis,
+	'opening_theaters':open_T,
+	'MPAA' : mp, 
+	'genres' : gen,
+       'release_days': release_D
+	}
+input_en = pd.DataFrame(data_en,index=[0])
+with st.expander("Input Data"):
+	st.write('**Data**')
+	input_df
+	st.write('**Encoded Data**')
+	input_en
