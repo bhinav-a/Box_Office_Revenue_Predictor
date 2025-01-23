@@ -58,8 +58,7 @@ with st.expander('Data Visualization'):
     st.plotly_chart(fig, use_container_width=True)
 
 with st.sidebar:
-    load = st.button('Load Button')
-    if load:
+    
         st.header('Input Features')
         title = st.text_input("Movie title", "Enter Movie Name")
         pro = st.radio("Choose the Production Company:", ['Warner Bros.', 'Disney', 'Sony', 'Universal', 'Paramount'])
@@ -67,7 +66,9 @@ with st.sidebar:
         genre = st.radio("Choose Genre:", ['Animation', 'Action', 'Horror', 'Comedy', 'Drama', 'Thriller'])
         open_T = st.slider('Opening Theatre', 10, 4500, 2263)
         release_D = st.slider('Release Date', 1, 180, 90)
-
+    
+    load = st.button('Load Button')
+    if load :
         pro_dict = {'Warner Bros.': 4, 'Disney': 0, 'Sony': 2, 'Universal': 3, 'Paramount': 1}
         mpaa_dict = {'R': 4, 'G': 0, 'NC': 1, 'PG': 2, 'PG-13': 3}
         genre_dict = {'Animation': 1, 'Action': 0, 'Horror': 4, 'Comedy': 2, 'Drama': 3, 'Thriller': 5}
@@ -77,14 +78,14 @@ with st.sidebar:
         data_en = {'distributor': pro_dict[pro], 'opening_theaters': open_T, 'MPAA': mpaa_dict[mpaa], 'genres': genre_dict[genre], 'release_days': release_D}
         input_en = pd.DataFrame(data_en, index=[0])
 
-        with st.expander("Input Data"):
+with st.expander("Input Data"):
             st.write('**Data**')
             st.write(input_df)
             st.write('**Encoded Data**')
             st.write(input_en)
-
-        input_scaled = scaler.transform(input_en)
-        answer = model.predict(input_scaled)
-        ans = 10 ** answer[0]
-        st.subheader('Predicted Revenue')
-        st.success('$ ' + "{:,}".format(ans))
+    
+input_scaled = scaler.transform(input_en)
+answer = model.predict(input_scaled)
+ans = 10 ** answer[0]
+st.subheader('Predicted Revenue')
+st.success('$ ' + "{:,}".format(ans))
