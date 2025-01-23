@@ -152,4 +152,5 @@ with st.expander("Input Data"):
 	input_en
 answer = model.predict(input_en.to_numpy())
 f_ans = 10**answer
-st.write(f_ans)
+st.subheader('Predicted Species')
+st.success(f_ans)
