@@ -125,4 +125,7 @@ with st.sidebar:
 	elif genre == "Thriller" :
 	    gen = 5
 
-df
+	open_T = st.slider('Opening Theatre' , 10 ,4500, 2263)  
+	release_D = st.slider('Release Date' , 1, 180 ,90)
+
+	
