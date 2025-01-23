@@ -44,15 +44,6 @@ fig = ff.create_distplot(ar , group_labels ,bin_size=[.1, .25, .5])
 with st.expander('Data Visualization'):
   st.plotly_chart(fig , use_container_width=True)
 
-
-vectorizer = CountVectorizer()
-vectorizer.fit(df['genres'])
-features = vectorizer.transform(df['genres']).toarray()
-
-genres = vectorizer.get_feature_names_out()
-for i, name in enumerate(genres):
-	df[name] = features[:, i]
-
 for col in ['genres']:
 	le = LabelEncoder()
 	df[col] = le.fit_transform(df[col])
