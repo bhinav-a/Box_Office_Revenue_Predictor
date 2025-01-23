@@ -80,5 +80,8 @@ print('Training Error : ', mae(Y_train, train_preds))
 val_preds = model.predict(X_val)
 print('Validation Error : ', mae(Y_val, val_preds))
 
+with st.sidebar:
+	st.header('Input Features')
+	
 									
 
