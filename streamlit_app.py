@@ -11,7 +11,7 @@ import plotly.figure_factory as ff
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from xgboost import XGBRegressor
-@st.cache_data
+@st.cache_data(ttl = TTl)
 df = pd.read_csv('boxoffice.csv')
 to_remove = ['world_revenue', 'opening_revenue']
 df.drop(to_remove, axis=1, inplace=True)
@@ -127,7 +127,7 @@ with st.sidebar:
 	
 		open_T = st.slider('Opening Theatre' , 10 ,4500, 2263)  
 		release_D = st.slider('Release Date' , 1, 180 ,90)
-@st.cache_data
+@st.cache_data(ttl=TTL)
 data = {
 	'title':title,
 	'distributor':pro,
