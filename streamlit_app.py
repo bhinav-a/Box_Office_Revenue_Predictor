@@ -91,7 +91,7 @@ with st.sidebar:
 	    dis = 1
 
 	mpaa = st.radio(
-	    "Chose the Production Company :",
+	    "Choose MPAA :",
 	    ['R', 'G', 'NC', 'PG-13', 'PG'],
 	)
 	
@@ -108,7 +108,7 @@ with st.sidebar:
 
 
 	genre = st.radio(
-	    "Choose the Production Company :",
+	    "Choose Genre:",
 	    ['Animation', 'Action', 'Horror', 'Comedy', 'Drama', 'Thriller'],
 	)
 	
