@@ -152,6 +152,6 @@ with st.expander("Input Data"):
 	input_en
 answer = model.predict(input_en.to_numpy())
 f_ans = 10**answer
-ans = str(f_ans[0])
+ans = f_ans[0]
 st.subheader('Predicted Rvenue')
 st.success('$ '+"{:,}".format(ans))
