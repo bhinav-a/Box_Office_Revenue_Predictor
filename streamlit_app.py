@@ -153,4 +153,4 @@ with st.expander("Input Data"):
 answer = model.predict(input_en.to_numpy())
 f_ans = str(10**answer)
 st.subheader('Predicted Rvenue')
-st.success('$'+f_ans)
+st.success('$'+f_ans[0])
