@@ -128,4 +128,13 @@ with st.sidebar:
 	open_T = st.slider('Opening Theatre' , 10 ,4500, 2263)  
 	release_D = st.slider('Release Date' , 1, 180 ,90)
 
-	
+data = {
+	'title':title,
+	'distributor':pro,
+	'opening_theaters':open_T,
+	'MPAA' : mpaa, 
+	'genres' : genre,
+       'release_days': release_D
+	}
+input_df = pd.DataFrame(data,index[0])
+input_df
