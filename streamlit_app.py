@@ -10,8 +10,6 @@ import seaborn as sb
 import plotly.figure_factory as ff
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics import mean_absolute_error as mae
 from xgboost import XGBRegressor
 df = pd.read_csv('boxoffice.csv')
 to_remove = ['world_revenue', 'opening_revenue']
@@ -20,14 +18,14 @@ df.drop('budget', axis=1, inplace=True)
 df.dropna(inplace=True)
 with st.expander('Data'):
   st.write('**Raw Data**')
-  df
+  df.head()
   st.write('**X**')
   ab = ['title','domestic_revenue']
   x = df.drop(ab,axis=1)
-  x
+  x.head()
   st.write('**Y**')
   y = df.domestic_revenue
-  y
+  y.head()
 for col in ['domestic_revenue', 'opening_theaters', 'release_days']:
     df[col] = df[col].astype(str).str.replace(',', '')
     df[col] = pd.to_numeric(df[col], errors='coerce')
