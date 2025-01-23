@@ -154,4 +154,4 @@ answer = model.predict(input_en.to_numpy())
 f_ans = 10**answer
 ans = str(f_ans[0])
 st.subheader('Predicted Rvenue')
-st.success('$ '+ans)
+st.success('$ '+"{:,}".format(ans))
