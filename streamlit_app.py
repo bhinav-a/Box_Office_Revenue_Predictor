@@ -81,7 +81,23 @@ val_preds = model.predict(X_val)
 print('Validation Error : ', mae(Y_val, val_preds))
 
 with st.sidebar:
-	st.header('Input Features')
 	
-									
+	st.header('Input Features')
+	title = st.text_input("Movie title", "Enter Movie Name")
+	pro = st.radio(
+	    "Choose the Production Company :",
+	    ['Warner Bros.', 'Disney', 'Sony', 'Universal', 'Paramount'],
+	)
+	
+	if pro == "Warner Bros.":
+	    dis = 4
+	elif pro == "Disney" :
+	    dis = 0
+	elif pro == "Sony" :
+	    dis = 2
+	elif pro == "Universal":
+	    dis = 3	
+	elif pro == "Paramount" :
+	    dis = 1
+	print(dis)
 
