@@ -69,62 +69,63 @@ val_preds = model.predict(X_val)
 print('Validation Error : ', mae(Y_val, val_preds))
 
 with st.sidebar:
+	load = st.button('Load Button')
+	if load:
+		st.header('Input Features')
+		title = st.text_input("Movie title", "Enter Movie Name")
+		pro = st.radio(
+		    "Choose the Production Company :",
+		    ['Warner Bros.', 'Disney', 'Sony', 'Universal', 'Paramount'],
+		)
+		
+		if pro == "Warner Bros.":
+		    dis = 4
+		elif pro == "Disney" :
+		    dis = 0
+		elif pro == "Sony" :
+		    dis = 2
+		elif pro == "Universal":
+		    dis = 3	
+		elif pro == "Paramount" :
+		    dis = 1
 	
-	st.header('Input Features')
-	title = st.text_input("Movie title", "Enter Movie Name")
-	pro = st.radio(
-	    "Choose the Production Company :",
-	    ['Warner Bros.', 'Disney', 'Sony', 'Universal', 'Paramount'],
-	)
+		mpaa = st.radio(
+		    "Choose MPAA :",
+		    ['R', 'G', 'NC', 'PG-13', 'PG'],
+		)
+		
+		if mpaa == 'R':
+		    mp = 4
+		elif mpaa == 'G' :
+		    mp = 0
+		elif mpaa == 'PG' :
+		    mp = 2
+		elif mpaa == 'PG-13':
+		    mp = 3	
+		elif mpaa == 'NC' :
+		    mp = 1
 	
-	if pro == "Warner Bros.":
-	    dis = 4
-	elif pro == "Disney" :
-	    dis = 0
-	elif pro == "Sony" :
-	    dis = 2
-	elif pro == "Universal":
-	    dis = 3	
-	elif pro == "Paramount" :
-	    dis = 1
-
-	mpaa = st.radio(
-	    "Choose MPAA :",
-	    ['R', 'G', 'NC', 'PG-13', 'PG'],
-	)
 	
-	if mpaa == 'R':
-	    mp = 4
-	elif mpaa == 'G' :
-	    mp = 0
-	elif mpaa == 'PG' :
-	    mp = 2
-	elif mpaa == 'PG-13':
-	    mp = 3	
-	elif mpaa == 'NC' :
-	    mp = 1
-
-
-	genre = st.radio(
-	    "Choose Genre:",
-	    ['Animation', 'Action', 'Horror', 'Comedy', 'Drama', 'Thriller'],
-	)
+		genre = st.radio(
+		    "Choose Genre:",
+		    ['Animation', 'Action', 'Horror', 'Comedy', 'Drama', 'Thriller'],
+		)
+		
+		if genre == "Animation":
+		    gen = 1
+		elif genre == "Action" :
+		    gen = 0
+		elif genre == "Horror" :
+		    gen = 4
+		elif genre == "Comedy":
+		    gen = 2	
+		elif genre == "Drama" :
+		    gen = 3
+		elif genre == "Thriller" :
+		    gen = 5
 	
-	if genre == "Animation":
-	    gen = 1
-	elif genre == "Action" :
-	    gen = 0
-	elif genre == "Horror" :
-	    gen = 4
-	elif genre == "Comedy":
-	    gen = 2	
-	elif genre == "Drama" :
-	    gen = 3
-	elif genre == "Thriller" :
-	    gen = 5
-
-	open_T = st.slider('Opening Theatre' , 10 ,4500, 2263)  
-	release_D = st.slider('Release Date' , 1, 180 ,90)
+		open_T = st.slider('Opening Theatre' , 10 ,4500, 2263)  
+		release_D = st.slider('Release Date' , 1, 180 ,90)
 
 data = {
 	'title':title,
