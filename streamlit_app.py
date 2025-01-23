@@ -137,4 +137,5 @@ data = {
        'release_days': release_D
 	}
 input_df = pd.DataFrame(data,index=[0])
-input_df
+# input_df
+print(input_df.to_numpy())
