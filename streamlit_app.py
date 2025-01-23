@@ -20,7 +20,6 @@ df.drop('budget', axis=1, inplace=True)
 df.dropna(inplace=True)
 with st.expander('Data'):
   st.write('**Raw Data**')
-  df = pd.read_csv('boxoffice.csv')
   df
   st.write('**X**')
   ab = ['title','domestic_revenue' ,'world_revenue', 'opening_revenue' ]
