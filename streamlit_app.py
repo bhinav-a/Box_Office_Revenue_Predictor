@@ -67,7 +67,7 @@ with st.sidebar:
         open_T = st.slider('Opening Theatre', 10, 4500, 2263)
         release_D = st.slider('Release Date', 1, 180, 90)
     
-    load = st.button('Load Button')
+        load = st.button('Load Button')
     if load :
         pro_dict = {'Warner Bros.': 4, 'Disney': 0, 'Sony': 2, 'Universal': 3, 'Paramount': 1}
         mpaa_dict = {'R': 4, 'G': 0, 'NC': 1, 'PG': 2, 'PG-13': 3}
