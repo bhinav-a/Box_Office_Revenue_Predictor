@@ -150,3 +150,5 @@ with st.expander("Input Data"):
 	input_df
 	st.write('**Encoded Data**')
 	input_en
+answer = model.predict(input_en.to_numpy())
+st.write(answer)
