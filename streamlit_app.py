@@ -45,11 +45,11 @@ st.info('This app can predict a box office revenue by using the genre of the mov
 
 with st.expander('Data'):
     st.write('**Raw Data**')
-    st.write(df2.head())
+    st.write(df2.head(20))
     st.write('**X**')
-    st.write(x.head())
+    st.write(x.head(10))
     st.write('**Y**')
-    st.write(y.head())
+    st.write(y.head(10))
 
 group_labels = ['Domestic Revenue']
 array = df['domestic_revenue'].to_numpy()
