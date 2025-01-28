@@ -20,7 +20,7 @@ def load_data():
     for col in ['genres', 'distributor', 'MPAA']:
         le = LabelEncoder()
         df[col] = le.fit_transform(df[col])
-    return df
+    return df , df2
 
 @st.cache_resource
 def train_model(features, target):
@@ -34,7 +34,7 @@ def train_model(features, target):
     val_preds = model.predict(X_val)
     return model, scaler, mae(Y_train, train_preds), mae(Y_val, val_preds)
 
-df = load_data()
+df , df2 = load_data()
 x = df.drop(['title', 'domestic_revenue'], axis=1)
 y = df.domestic_revenue
 
