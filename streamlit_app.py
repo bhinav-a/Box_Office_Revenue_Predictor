@@ -10,6 +10,7 @@ from sklearn.metrics import mean_absolute_error as mae
 @st.cache_data
 def load_data():
     df = pd.read_csv('boxoffice.csv')
+    df2 = df.copy()
     df.drop(['world_revenue', 'opening_revenue', 'budget'], axis=1, inplace=True)
     df.dropna(inplace=True)
     for col in ['domestic_revenue', 'opening_theaters', 'release_days']:
@@ -44,7 +45,7 @@ st.info('This app can predict a box office revenue by using the genre of the mov
 
 with st.expander('Data'):
     st.write('**Raw Data**')
-    st.write(df.head())
+    st.write(df2.head())
     st.write('**X**')
     st.write(x.head())
     st.write('**Y**')
