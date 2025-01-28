@@ -41,7 +41,7 @@ y = df.domestic_revenue
 model, scaler, train_error, val_error = train_model(x, y)
 
 st.title('🎬Box Office Revenue Predictor')
-st.info('This app can predict a box office revenue by using the genre of the movie and other related features')
+st.info('This app can predict domestic box office revenue by using the genre of the movie and other related features')
 
 with st.expander('Data'):
     st.write('**Raw Data**')
