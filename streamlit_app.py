@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from xgboost import XGBRegressor
 from sklearn.metrics import mean_absolute_error as mae
+from sklearn.metrics import mean_squared_error as mse
 
 @st.cache_data
 def load_data():
@@ -57,7 +58,8 @@ fig = ff.create_distplot([array], group_labels, bin_size=[.1, .25, .5])
 
 with st.expander('Data Visualization'):
     st.plotly_chart(fig, use_container_width=True)
-
+with st.expander('Metrics'):
+    st.write('**Mean Squared Error : **' , mse(Y_train, train_preds) )
 with st.sidebar:
     
         st.header('Input Features')
