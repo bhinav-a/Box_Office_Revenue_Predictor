@@ -58,8 +58,7 @@ fig = ff.create_distplot([array], group_labels, bin_size=[.1, .25, .5])
 
 with st.expander('Data Visualization'):
     st.plotly_chart(fig, use_container_width=True)
-with st.expander('Metrics'):
-    st.write('**Mean Squared Error : **' , mse(Y_train, train_preds) )
+
 with st.sidebar:
     
         st.header('Input Features')
@@ -80,7 +79,9 @@ if load :
     input_df = pd.DataFrame(data, index=[0])
     data_en = {'distributor': pro_dict[pro], 'opening_theaters': open_T, 'MPAA': mpaa_dict[mpaa], 'genres': genre_dict[genre], 'release_days': release_D}
     input_en = pd.DataFrame(data_en, index=[0])
-
+    with st.expander('Metrics'):
+        train_preds = model.predict(X_train)
+        st.write('**Mean Squared Error : **' , mse(Y_train, train_preds) )
     with st.expander("Input Data"):
                 st.write('**Data**')
                 st.write(input_df)
