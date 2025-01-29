@@ -60,7 +60,7 @@ with st.expander('Data Visualization'):
     st.plotly_chart(fig, use_container_width=True)
 
 with st.expander('Metrics'):
-    st.write('**Mean Squared Error : **' ,train_error )
+    st.write('Mean Squared Error :' ,train_error )
 
 with st.sidebar:
     
