@@ -7,6 +7,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from xgboost import XGBRegressor
 from sklearn.metrics import mean_absolute_error as mae
 from sklearn.metrics import mean_squared_error as mse
+from sklearn.metrics import r2_score as r2
 
 @st.cache_data
 def load_data():
@@ -33,13 +34,13 @@ def train_model(features, target):
     model.fit(X_train, Y_train)
     train_preds = model.predict(X_train)
     val_preds = model.predict(X_val)
-    return model, scaler, mse(Y_train, train_preds), mae(Y_val, val_preds)
+    return model, scaler, mse(Y_train, train_preds), r2(Y_train, train_preds)
 
 df , df2 = load_data()
 x = df.drop(['title', 'domestic_revenue'], axis=1)
 y = df.domestic_revenue
 
-model, scaler, train_error, val_error = train_model(x, y)
+model, scaler, mse_error, r2_error = train_model(x, y)
 
 st.title('🎬Box Office Revenue Predictor')
 st.info('This app can predict domestic box office revenue by using the genre of the movie and other related features')
@@ -60,7 +61,8 @@ with st.expander('Data Visualization'):
     st.plotly_chart(fig, use_container_width=True)
 
 with st.expander('Metrics'):
-    st.write('Mean Squared Error :' ,train_error )
+    st.write('Mean Squared Error :' ,mse_error )
+    st.write('R2 Error :' ,r2_error )
 
 with st.sidebar:
     
