@@ -16,6 +16,7 @@ def load_data():
     df.drop(['world_revenue', 'opening_revenue', 'budget'], axis=1, inplace=True)
     df.dropna(inplace=True)
     df = df[df['domestic_revenue'] >= 100000000]
+    df2 = df2[df2['domestic_revenue'] >= 100000000]
     for col in ['domestic_revenue', 'opening_theaters', 'release_days']:
         df[col] = df[col].astype(str).str.replace(',', '')
         df[col] = pd.to_numeric(df[col], errors='coerce')
