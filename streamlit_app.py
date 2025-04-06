@@ -39,7 +39,7 @@ def train_model(features, target):
 
 df , df2 = load_data()
 # df = df[df['domestic_revenue'] >= 100000000]
-# df2 = df2[df2['domestic_revenue'] >= 100000000]
+df2 = df2[df2['domestic_revenue'] >= 100000000]
 x = df.drop(['title', 'domestic_revenue'], axis=1)
 y = df.domestic_revenue
 
