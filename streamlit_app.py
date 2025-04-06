@@ -75,8 +75,8 @@ with st.sidebar:
         pro = st.radio("Choose the Production Company:", ['Warner Bros.', 'Disney', 'Sony', 'Universal', 'Paramount'])
         mpaa = st.radio("Choose MPAA:", ['R', 'G', 'NC', 'PG-13', 'PG'])
         genre = st.radio("Choose Genre:", ['Animation', 'Action', 'Horror', 'Comedy', 'Drama', 'Thriller'])
-        open_T = st.slider('No. Of Theatres', 0.0, 10.0, 2263)
-        release_D = st.slider('Released Days', 0.0, 10.0, 90)
+        open_T = st.slider('No. Of Theatres', 0.0, 10.0, 1.0)
+        release_D = st.slider('Released Days', 0.0, 10.0, 1.0)
         load = st.button('Load Button')
         
 if load :
