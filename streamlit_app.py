@@ -40,7 +40,7 @@ def train_model(features, target):
 
 df , df2 = load_data()
 
-x = df.drop(['title', 'domestic_revenue'], axis=1)
+x = df.drop(['domestic_revenue'], axis=1)
 y = df.domestic_revenue
 
 model, scaler, mse_error, r2_error = train_model(x, y)
