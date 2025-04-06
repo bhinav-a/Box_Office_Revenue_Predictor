@@ -18,7 +18,7 @@ def load_data():
     for col in ['domestic_revenue', 'opening_theaters', 'release_days']:
         df[col] = df[col].astype(str).str.replace(',', '')
         df[col] = pd.to_numeric(df[col], errors='coerce')
-        df[col] = df[col].apply(lambda x: np.log10(x))
+        df[col] = df[col].apply(lambda x: np.log1p(x))
     for col in ['genres', 'distributor', 'MPAA']:
         le = LabelEncoder()
         df[col] = le.fit_transform(df[col])
