@@ -13,6 +13,8 @@ from sklearn.metrics import r2_score as r2
 def load_data():
     df = pd.read_csv('boxoffice.csv')
     df2 = df.copy()
+    df = df[df['domestic_revenue'] >= 100000000]
+    df2 = df2[df2['domestic_revenue'] >= 100000000]
     df.drop(['world_revenue', 'opening_revenue', 'budget'], axis=1, inplace=True)
     df.dropna(inplace=True)
 
@@ -37,8 +39,7 @@ def train_model(features, target):
     val_preds = model.predict(X_val)
     return model, scaler, mse(Y_train, train_preds), r2(Y_train, train_preds)
 
-df = df[df['domestic_revenue'] >= 100000000]
-df2 = df2[df2['domestic_revenue'] >= 100000000]
+
 df , df2 = load_data()
 
 x = df.drop(['title', 'domestic_revenue'], axis=1)
