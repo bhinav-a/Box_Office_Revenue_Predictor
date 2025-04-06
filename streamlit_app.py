@@ -13,7 +13,6 @@ from sklearn.metrics import r2_score as r2
 def load_data():
     df = pd.read_csv('boxoffice.csv')
     df2 = df.copy()
-    df = df[df['domestic_revenue'] >= 100000000]
     df2 = df2[df2['domestic_revenue'] >= 100000000]
     df.drop(['world_revenue', 'opening_revenue', 'budget'], axis=1, inplace=True)
     df.dropna(inplace=True)
