@@ -14,12 +14,11 @@ def load_data():
     df = pd.read_csv('boxoffice.csv')
     df2 = df.copy()
     df2 = df2[df2['domestic_revenue'] >= 100000000]
-    df.drop(['world_revenue', 'opening_revenue', 'budget'], axis=1, inplace=True)
+    df = df[df['domestic_revenue'] >= 100000000]
+    df.drop(['world_revenue', 'opening_revenue', 'budget','title'], axis=1, inplace=True)
     df.dropna(inplace=True)
 
     for col in ['domestic_revenue', 'opening_theaters', 'release_days']:
-        df[col] = df[col].astype(str).str.replace(',', '')
-        df[col] = pd.to_numeric(df[col], errors='coerce')
         df[col] = df[col].apply(lambda x: np.log10(x))
     for col in ['genres', 'distributor', 'MPAA']:
         le = LabelEncoder()
